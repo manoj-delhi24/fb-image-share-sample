@@ -1,0 +1,34 @@
+<%= form_for( @category) do |f| %>
+  <% if @category.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@category.errors.count, "error") %> prohibited this category from being saved:</h2>
+
+      <ul>
+      <% @category.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+    <%= f.submit 'Add new category' %>
+<% end %>
+<div>&nbsp;</div>
+<h4>Existing categories</h4>
+
+<table>
+  <tr>
+    <th>Name</th>
+  </tr>
+
+<% @categories.each do |category| %>
+  <tr>
+    <td><%= category.name %></td>
+  </tr>
+<% end %>
+</table>
+
+<br /><br /><br />
+<%= link_to "back to all users", users_path %>

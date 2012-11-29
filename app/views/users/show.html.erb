@@ -1,0 +1,19 @@
+<p>
+  <b>Name:</b>
+  <%= @user.name %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @user.email %>
+</p>
+<% for image in @user.images %>
+  <div>
+    <%= image_tag image.photo.url( :thumb) %>
+    Category :    <%=h image.category.try( :name)  %> |
+    Description:  <%=h image.description %>
+    <%= link_to 'share on your timeline', share_on_fb_user_path( @user, :image_id => image.id) %>
+  </div>
+<% end %>
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>
