@@ -12,7 +12,6 @@ gem 'omniauth-facebook'
 gem 'oauth2'
 gem 'fb_graph'
 gem 'nested_form'
-gem 'timecop'
 
 # Gems used only for assets and not required
 # in production environments by default.
